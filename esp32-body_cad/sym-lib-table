@@ -1,0 +1,4 @@
+(sym_lib_table
+	(version 7)
+	(lib (name "esp32_devkit_v1") (type "KiCad") (uri "${KIPRJMOD}/libraries/esp32-devkit-v1/esp32_30pin_revised.kicad_sym") (options "") (descr "ESP32 DevKit V1 30-pin DOIT"))
+)
