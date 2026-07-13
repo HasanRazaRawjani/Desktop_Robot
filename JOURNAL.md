@@ -11,8 +11,8 @@ Today, I worked for ~90 minutes adding servo motors and female connector to my p
 Today, I worked for ~60 minutes cadding my design. still not done yet, and also, I connected my tft screen to test it and saw a bunch of dead pixels and realized it was broken,so I also need that from funding.
 
 7/13/2026 (July 13th)
-A lot today, I decided to abandon the esp32 connecting with the pi 4 idea and decieded to only use the pi 4 that I will buy with funding because the pi4 can do everythingte esp can and there is no point in having the esp. Aos, I finished my cad model and updated the readme to get ready to submit for funding. I also named the project: Voxia. I have 3 seperate cad files. One with the parts in it and one with just the suff I need to print.
-
+A lot today, I decided to abandon the esp32 connecting with the pi 4 idea and decieded to only use the pi 4 that I will buy with funding because the pi4 can do everythingte esp can and there is no point in having the esp. Also, I finished my cad model and updated the readme to get ready to submit for funding. I also named the project: Voxia. I have 3 seperate cad files. One with the parts in it and one with just the suff I need to print.
+Time spent:~80 minutes Update: I also wrote the readme.
 
 <img width="879" height="543" alt="image" src="https://github.com/user-attachments/assets/1a49a96e-e42b-4e33-9a9b-f09e7e21658f" />
 
