@@ -1,41 +1,55 @@
-# Desktop Robot — ESP32 Body
+# Voxia
 
-KiCad design for the body PCB of a small desktop robot. The board hosts a socketed **ESP32 DevKit V1**, a **1.3" ST7789 TFT**, and an **MPU6050** IMU so modules can be swapped without soldering them to the PCB.
+**Voxia** is a small desktop study companion robot. It sits on your desk with an animated face, can sense motion, move with servo “legs,” and — once the Pi build is fully wired — talk, listen, play music, and help you stay focused while you study.
 
-## Hardware
+## Why it exists
 
-| Ref | Part | Notes |
-|-----|------|--------|
-| **U1** | HiLetgo / DOIT ESP32 DevKit V1 (30-pin) | Whole DevKit plugs into female sockets — not a bare WROOM module |
-| **J1** | 1.3" IPS ST7789 TFT (7-pin) | GND, VCC, SCL, SDA, RES, DC, BLK — **no CS pin** |
-| **J2** | MPU6050 breakout (8-pin) | Only pins 1–4 wired (VCC, GND, SCL, SDA) |
+Voxia is meant to make studying less lonely and a bit more accountable. The long-term idea is a robot that:
 
-All three use **female headers on the PCB** and **male headers on the modules**.
+- Keeps you company at the desk with a face on a small TFT
+- Lets you **talk to it** (mic in, speaker out)
+- **Plays music** while you work
+- Uses a **USB camera** for simple awareness at the desk
+- Helps **track where your phone is** — and if it detects the phone is in your hand when you should be studying, it can **start beeping** to nudge you to put it down
+- Can **move** a little (servos) so it feels present, not like a static gadget
 
-## Pin map
+None of that is fully finished yet. The goal is a Pi-powered desk robot that can grow into those features over time.
 
-| Function | ESP32 GPIO |
-|----------|------------|
-| TFT SCK | 18 |
-| TFT MOSI | 23 |
-| TFT RST | 27 |
-| TFT DC | 2 |
-| MPU SDA | 21 |
-| MPU SCL | 22 |
+## Current approach: Raspberry Pi 4 + breadboard
 
-**TFT_eSPI notes:** set `TFT_CS` to `-1` (no chip select). `BLK` is tied to 3.3V on the PCB (`TFT_BL -1`).
+Early on, this project included a custom **ESP32 body PCB** in KiCad (socketed DevKit, ST7789 face display, MPU6050). That work was useful for learning PCB design, but the plan changed.
 
-Reserved for later: GPIO 4 (dock), 16/17 (UART), 32/33 (servos), 15 (touch), 0 (button).
+**Why the switch:** getting a full custom board fabbed and revised for every new idea (camera, mic, speaker, phone nudges, movement) was going to slow everything down. Wiring on a **Raspberry Pi 4** with **breadboards** makes it faster to try sensors, audio, and camera ideas before committing to another PCB.
 
-## Board layout
+So for now:
 
-- Flat single PCB, ~**37 × 60 mm**
-- **J1 (TFT)** at the front, centered
-- **U1 (ESP32)** set back, USB toward the rear
-- **J2 (MPU)** beside the ESP32
+- **Brain:** Raspberry Pi 4  
+- **Prototyping:** breadboards + jumper wires  
+- **Display / IMU / servos / audio / camera:** added as modules as the build grows  
 
-Mount the board **upright** in the robot shell so the screen faces forward. Optional taller headers / standoffs on J1 push the display farther out.
+## Earlier PCB work (still in the repo)
 
-CAD measurements: see `CAD-measurements.md`.
+The KiCad files are kept as a record of that first design pass:
 
-## Repo layout
+| Path | Contents |
+|------|----------|
+| `esp32-body_PCBcad/` | KiCad project, footprints, and CAD helpers |
+| `esp32-body_PCBcad/pcb and schematic/` | `esp32-body.kicad_pro` / `.kicad_sch` / `.kicad_pcb` |
+| `esp32-body_PCBcad/pcb and schematic screenshots/` | Layout screenshots from the PCB sessions |
+
+That board targeted an ESP32 DevKit V1, ST7789 TFT (face), and MPU6050 on female headers. It is **not** the active build path anymore, but it stays here for reference.
+
+## Planned Pi peripherals
+
+| Piece | Role |
+|-------|------|
+| TFT (ST7789) | Animated face / status UI |
+| MPU6050 | Motion / orientation sensing |
+| Servos | Small “leg” or body movement |
+| USB camera | Desk awareness / study context |
+| Mic | Voice input — talk to Voxia |
+| Speaker | Voice replies, music, phone-nudge beeps |
+
+## Journal
+
+Build notes live in [`JOURNAL.md`](JOURNAL.md).
