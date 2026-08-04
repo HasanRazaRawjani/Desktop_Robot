@@ -27,7 +27,8 @@ So for now:
 - **Prototyping:** breadboards + jumper wires  
 - **Display / IMU / servos / audio / camera:** added as modules as the build grows  
 
-## Earlier PCB work (still in the repo)
+## (Not in use anymore) PCB work (still in the repo)
+Note: I was gonna do a pcb for this project and I fully made one in kiKad too, but then I realized its not needed and it would be a waste of money and time to get one because then I would have to buy a soldering iron too.
 
 The KiCad files are kept as a record of that first design pass:
 
@@ -52,4 +53,4 @@ That board targeted an ESP32 DevKit V1, ST7789 TFT (face), and MPU6050 on female
 
 ## Journal
 
-Build notes live in [`JOURNAL.md`](JOURNAL.md).
+Build notes  in [`JOURNAL.md`](JOURNAL.md).
