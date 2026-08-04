@@ -17,6 +17,8 @@ None of that is fully finished yet. The goal is a Pi-powered desk robot that can
 
 ## Current approach: Raspberry Pi 4 + breadboard
 
+Will attach webcam and speakers externally and connect with Raspberry Pi ports by gluing them on the 3d printed case.
+
 Early on, this project included a custom **ESP32 body PCB** in KiCad (socketed DevKit, ST7789 face display, MPU6050). That work was useful for learning PCB design, but the plan changed.
 
 **Why the switch:** getting a full custom board fabbed and revised for every new idea (camera, mic, speaker, phone nudges, movement) was going to slow everything down. Wiring on a **Raspberry Pi 4** with **breadboards** makes it faster to try sensors, audio, and camera ideas before committing to another PCB.
